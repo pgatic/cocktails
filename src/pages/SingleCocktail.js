@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Loading from "../components/Loading";
 import { useParams, Link } from "react-router-dom";
-import { FaHeart } from "react-icons/fa";
+import { FaTwitter, FaHeart } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { useGlobalContext } from "../context";
+import { Helmet } from "react-helmet-async";
 
 const SingleCocktail = () => {
   const { id } = useParams();
@@ -114,6 +115,21 @@ const SingleCocktail = () => {
 
     return (
       <article className="flex flex-wrap justify-center">
+        <Helmet>
+          <meta name="twitter:card" content="summary" />
+          <meta name="twitter:site" content="@pgatic-cocktails" />
+          <meta name="twitter:creator" content="@pgatic" />
+          <meta
+            property="og:url"
+            content={`https://pgatic-cocktails.netlify.app/cocktail/${id}`}
+          />
+          <meta property="og:title" content="Cocktails" />
+          <meta
+            property="og:description"
+            content="Cocktails for every occassion"
+          />
+          <meta property="og:image" content={image} />
+        </Helmet>
         <div className="w-100 w-50-l mw6 pa3">
           <h1 className="baskerville f2 gray tc">{name}</h1>
           <img src={image} className="w-100 br3" alt={name} />
@@ -172,6 +188,20 @@ const SingleCocktail = () => {
             </dl>
           </div>
           <div className="mt5 flex items-center justify-around">
+            <IconContext.Provider
+              value={{
+                size: "2em",
+                className: "pv2 ph3 blue dim pointer",
+              }}
+            >
+              <a
+                href={`https://twitter.com/intent/tweet?url=https://pgatic-cocktails.netlify.app/cocktail/${id}`}
+                className="twitter-share-button"
+              >
+                <FaTwitter />
+              </a>
+            </IconContext.Provider>
+
             <Link to="/" className="link grow b br2 ph3 pv2 black bg-orange">
               Go Back
             </Link>

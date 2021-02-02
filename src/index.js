@@ -5,11 +5,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // import "tachyons";
 import { AppProvider } from "./context";
+import { HelmetProvider } from "react-helmet-async";
 
 ReactDOM.render(
   <React.StrictMode>
     <AppProvider>
-      <App />
+      <HelmetProvider>
+        <App />
+      </HelmetProvider>
     </AppProvider>
   </React.StrictMode>,
   document.getElementById("root")
