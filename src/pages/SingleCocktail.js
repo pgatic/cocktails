@@ -189,7 +189,6 @@ const SingleCocktail = () => {
               <a
                 href={`https://twitter.com/intent/tweet?url=${window.location.href}`}
                 className="twitter-share-button"
-                target="_blank"
               >
                 <FaTwitter />
               </a>
