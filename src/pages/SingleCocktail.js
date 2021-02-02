@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { FaTwitter, FaHeart } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { useGlobalContext } from "../context";
+import { Helmet } from "react-helmet";
 
 const SingleCocktail = () => {
   const { id } = useParams();
@@ -114,6 +115,13 @@ const SingleCocktail = () => {
 
     return (
       <article className="flex flex-wrap justify-center">
+        <Helmet>
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content={window.location.href} />
+          <meta name="twitter:title" content="Pick and shake" />
+          <meta name="twitter:description" content="Cocktails" />
+          <meta name="twitter:image" content={image} />
+        </Helmet>
         <div className="w-100 w-50-l mw6 pa3">
           <h1 className="baskerville f2 gray tc">{name}</h1>
           <img src={image} className="w-100 br3" alt={name} />
@@ -181,6 +189,7 @@ const SingleCocktail = () => {
               <a
                 href={`https://twitter.com/intent/tweet?url=${window.location.href}`}
                 className="twitter-share-button"
+                target="_blank"
               >
                 <FaTwitter />
               </a>
