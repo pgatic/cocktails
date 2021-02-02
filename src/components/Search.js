@@ -13,16 +13,12 @@ const Search = () => {
     e.preventDefault();
   }
 
-  // useEffect(() => {
-  //   return searchValue.current.focus();
-  // });
-
   return (
     <form className="pa3 black-80 mw7 pt4 center" onSubmit={handleSubmit}>
       <div className="measure center">
         <input
           id="name"
-          className="input-reset ba b--gray-20 bg-dark-gray light-gray pa2 pl3 mb2 db w-100"
+          className="input-reset ba br2 b--gray-20 bg-dark-gray light-gray pa2 pl3 db w-100"
           type="text"
           placeholder="Search cocktails"
           aria-describedby="name-desc"

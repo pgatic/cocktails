@@ -22,7 +22,7 @@ const Header = () => {
           <FaCocktail />
         </IconContext.Provider>
       </Link>
-      <div className="pv3 flex items-center f6 fw4 ttu">
+      <div className="pv3 flex items-center f6 fw4 tracked-tight tracked-ns">
         <Link
           to="/"
           className="link dib white dim ph2 mr4-ns"

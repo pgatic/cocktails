@@ -11,10 +11,6 @@ const SingleCocktail = () => {
   const [cocktail, setCocktail] = useState(null);
   const { addToFavorites } = useGlobalContext();
 
-  const tweet = () => {
-    console.log("tweeeeeeeeeeeeeeeeeeeet");
-  };
-
   useEffect(() => {
     setLoading(true);
     async function getCocktail() {
@@ -120,7 +116,7 @@ const SingleCocktail = () => {
       <article className="flex flex-wrap justify-center">
         <div className="w-100 w-50-l mw6 pa3">
           <h1 className="baskerville f2 gray tc">{name}</h1>
-          <img src={image} className="w-100 br3 f5 shadow-5" alt={name} />
+          <img src={image} className="w-100 br3" alt={name} />
         </div>
         <div className="w-100 w-50-l mw6 pa3 flex flex-column">
           <div className="f5 pt6-l pl4-l">
@@ -182,7 +178,10 @@ const SingleCocktail = () => {
                 className: "pv2 ph3 blue dim pointer",
               }}
             >
-              <a href={`https://twitter.com/intent/tweet?text=${name}`}>
+              <a
+                href={`https://twitter.com/intent/tweet?url=${window.location.href}`}
+                className="twitter-share-button"
+              >
                 <FaTwitter />
               </a>
             </IconContext.Provider>
