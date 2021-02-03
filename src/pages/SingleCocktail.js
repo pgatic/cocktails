@@ -71,7 +71,7 @@ const SingleCocktail = () => {
           const ingredients = ingredientsTemp
             .filter((item) => item !== null && item !== "")
             .map((item, i) => {
-              return mesurements[i] + " of " + item;
+              return mesurements[i] ? mesurements[i] : "Approx" + " of " + item;
             });
           const newCocktail = {
             name,
@@ -116,7 +116,13 @@ const SingleCocktail = () => {
       <article className="flex flex-wrap justify-center">
         <div className="w-100 w-50-l mw6 pa3">
           <h1 className="baskerville f2 gray tc">{name}</h1>
-          <img src={image} className="w-100 br3" alt={name} />
+          <img
+            src={
+              image === null ? process.env.PUBLIC_URL + "/cocktail.jpg" : image
+            }
+            className="w-100 br3"
+            alt={name}
+          />
         </div>
         <div className="w-100 w-50-l mw6 pa3 flex flex-column">
           <div className="f5 pt6-l pl4-l">
