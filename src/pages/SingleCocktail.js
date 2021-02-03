@@ -71,7 +71,9 @@ const SingleCocktail = () => {
           const ingredients = ingredientsTemp
             .filter((item) => item !== null && item !== "")
             .map((item, i) => {
-              return mesurements[i] ? mesurements[i] : "Approx" + " of " + item;
+              return (
+                (mesurements[i] ? mesurements[i] : "Approx") + " of " + item
+              );
             });
           const newCocktail = {
             name,
