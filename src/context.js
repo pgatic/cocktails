@@ -19,6 +19,7 @@ const AppProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState(generateRandomLetter());
   const [cocktails, setCocktails] = useState([]);
   const [favorites, setFavorites] = useState(getSavedCocktails());
+  const [title, setTitle] = useState([""]);
 
   const fetchDrinks = useCallback(async () => {
     setLoading(true);
@@ -37,6 +38,7 @@ const AppProvider = ({ children }) => {
             info: strAlcoholic,
           };
         });
+        setTitle("");
         setCocktails(newCocktails);
       } else {
         setCocktails([]);
@@ -53,6 +55,7 @@ const AppProvider = ({ children }) => {
   }, [searchTerm, fetchDrinks]);
 
   const refresh = () => {
+    setTitle("");
     setSearchTerm(generateRandomLetter());
   };
 
@@ -85,6 +88,7 @@ const AppProvider = ({ children }) => {
             info: specific,
           };
         });
+        setTitle(specific);
         setCocktails(newCocktails);
       } else {
         setCocktails([]);
@@ -98,6 +102,7 @@ const AppProvider = ({ children }) => {
   };
 
   const showFavorites = () => {
+    setTitle("Favorites");
     setCocktails(favorites);
   };
 
@@ -105,6 +110,7 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         loading,
+        title,
         cocktails,
         searchTerm,
         favCount,
