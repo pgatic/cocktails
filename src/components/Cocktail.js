@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Cocktail = ({ image, name, id, info }) => {
   const styledInfo = info === "Alcoholic" ? "dark-red" : "green";
@@ -13,12 +15,15 @@ const Cocktail = ({ image, name, id, info }) => {
         <h3 className={`f6 white tr pr2 pv1 o-70 mv0 bg-${styledInfo}`}>
           {info.toLowerCase()}
         </h3>
-        <img
+        <LazyLoadImage
+          alt={name}
+          placeholderSrc={process.env.PUBLIC_URL + "/cocktail.jpg"}
           src={
             image === null ? process.env.PUBLIC_URL + "/cocktail.jpg" : image
           }
-          alt={name}
+          effect="blur"
         />
+
         <div className="w-100 pt1 pb2 bg-dark-gray o-80">
           <h2 className="f6 f5-ns mv0 ttu h2 light-gray">{name}</h2>
         </div>
