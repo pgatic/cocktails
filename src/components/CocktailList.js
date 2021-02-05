@@ -17,7 +17,7 @@ const CocktailList = () => {
   return (
     <article className="ph4-m ph6-l ph7-xl">
       <h1 className="baskerville f2 fw4 pa3 tc mv0 gray">
-        Cocktails{title ? ` - ${title}` : ""}
+        {title ? title : "Cocktails"}
       </h1>
       <div className="cf pa2">
         {cocktails.map((item, inx) => {
